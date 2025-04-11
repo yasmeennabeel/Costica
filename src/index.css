@@ -1,6 +1,14 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
 @font-face {
-  font-family: Glory;
+  /* font-family: Glory;
   src: url(./assets/fonts/Gilroy-Regular.ttf);
+  font-family: Inter;
+  src: url(assets/fonts/Inter-VariableFont_opsz\,wght.ttf); */
+  font-family: Roboto;
+  src: url(./assets/fonts/RobotoSlab-VariableFont_wght.ttf);
+
 }
 
 :root {
@@ -11,19 +19,4 @@
   --black: #1c1c1c;
   --white: #fcf7ee;
   --light: #d4d3cb;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Glory;
-}
-
-body,
-#root,
-.App {
-  width: 100%;
-  height: 100vh;
-  /* overflow: hidden; */
 }

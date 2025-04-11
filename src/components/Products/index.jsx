@@ -4,14 +4,14 @@ import backImg from "../../assets/imgs/back.png"
 
 export default function Products() {
     return (
-        <div className='products col-12'>
-            <div className={`${styles.back}  col-12`}>
-                <div className='d-flex justify-content-end '>
+        <div className='products '>
+            <div className='w-full'>
+                <div className='flex justify-end'>
                     <img src={backImg} className={styles.backImg}></img>
                 </div>
-                <div className='d-flex flex-grow-1 flex-column justify-content-center align-items-center text-center'>
+                <div className='flex grow flex-col justify-center align-center text-center'>
                     <p>Products</p>
-                    <h4 className='fw-bold fs-2'>New Arrivals</h4>
+                    <h4 className='font-bold text-8xl'>New Arrivals</h4>
                 </div>
 
             </div>
