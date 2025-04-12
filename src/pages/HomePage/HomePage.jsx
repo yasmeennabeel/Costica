@@ -5,15 +5,20 @@ import styles from './HomePage.module.css'
 import Products from '../../components/Products';
 import ShopItems from '../../components/ShopItems/ShopItems';
 import Story from '../../components/Story/Story';
-
+import Trending from '../../components/Trending/Trending';
+import Subscribe from '../../components/Subscribe/Subscribe';
+import Reviews from '../../components/Reviews/Reviews';
+import Policies from '../../components/Policies/Policies';
+import Blog from '../../components/Blog/Blog';
+import Footer from '../../components/Footer';
 
 export default function HomePage() {
   return (
     <>
-        <div className="w-full min-h-screen  flex flex-col md:flex-row justify-between items-center md:items-stretch gap-6">
-         <div className=' grid grid-cols-1 md:grid-cols-3'>
-         <div className=" items-center flex justify-center">
-            <img src={mainPagePhoto} alt="Left Image" className="max-w-full h-full"/>
+      <div className="w-full min-h-screen  flex flex-col md:flex-row justify-between items-center md:items-stretch gap-6">
+        <div className=' grid grid-cols-1 md:grid-cols-3'>
+          <div className=" items-center flex justify-center">
+            <img src={mainPagePhoto} alt="Left Image" className="max-w-full h-full" />
           </div>
           <div className=" flex flex-col text-center px-4 md:text-left justify-center items-center ">
             <p className="text-2xl font-light uppercase mt-2">For the beauty of youth</p>
@@ -24,20 +29,24 @@ export default function HomePage() {
             <button className='bg-[var(--offwhite)] hover:bg-[var(--brownish)] transition hover:text-white text-xl py-3 mb-2 px-8 border-0 rounded  shadow-2xl cursor-pointer'>Shop Now</button>
           </div>
           <div className=" items-start flex justify-center">
-            <img src={mainModel} alt="Right Image" className="max-w-full h-full"  />
+            <img src={mainModel} alt="Right Image" className="max-w-full h-full" />
           </div>
-         </div>
         </div>
-        <div className='hidden md:flex'>
-          <marquee behavior="scroll" direction="left" width="100%">Save Money | Free Shipping | Return Policy | Support 24/7</marquee>
+      </div>
+      <div className='hidden md:flex'>
+        <marquee behavior="scroll" direction="left" width="100%">Save Money | Free Shipping | Return Policy | Support 24/7</marquee>
 
-        </div>
+      </div>
 
-        <Products></Products>
-        <ShopItems></ShopItems>
-        <Story></Story>
-
-
+      <Products></Products>
+      <ShopItems></ShopItems>
+      <Story></Story>
+      <Trending></Trending>
+      <Subscribe></Subscribe>
+      <Policies></Policies>
+      <Reviews></Reviews>
+      <Blog></Blog>
+      <Footer></Footer>
     </>
   )
 }

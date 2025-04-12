@@ -4,7 +4,7 @@ import backImg from "../../assets/imgs/back.png"
 
 export default function Products() {
     return (
-        <div className='products '>
+        <div className='products'>
             <div className='w-full'>
                 <div className='flex justify-end'>
                     <img src={backImg} className={styles.backImg}></img>

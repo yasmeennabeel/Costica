@@ -4,7 +4,7 @@ import handImg from '../../assets/imgs/img-1-4.jpg'
 import creamImg from '../../assets/imgs/img-1-5.jpg'
 export default function Story() {
     return (
-        <div className='storySection mt-9'>
+        <div className='storySection my-9'>
             <div className='grid grid-cols-1 md:grid-cols-2'>
                 <div className='storyLeft flex flex-col justify-end  text-center items-center'>
                     <div className='storyTop '>

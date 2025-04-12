@@ -4,7 +4,7 @@ import { CiStar } from 'react-icons/ci'
 
 export default function ShopItems() {
   return (
-    <div className='shopItems container '>
+    <div className='shopItems container my-12'>
       <div className='grid grid-cols-1 md:grid-cols-4'>
         <div className="card bg-base-100  border-0">
           <figure className="px-10 pt-10 ">
