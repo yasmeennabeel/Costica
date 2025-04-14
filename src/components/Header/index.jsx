@@ -9,44 +9,44 @@ export default function Header() {
            
 
             <div className='container col-12 d-flex justify-content-between align-items-center w-100 p-4'>
-            <div className="menu-icon d-flex gap-3" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">
+            <div className="menu-icon d-flex gap-3 hover:text-[var(--brownish)] cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">
                 <CiMenuBurger />
             </div>
-            <div className="offcanvas offcanvasLeft offcanvas-start firstCanva" tabIndex="-1" id="menuOffcanvas"
+            <div className="offcanvas offcanvasLeft offcanvas-start firstCanva " tabIndex="-1" id="menuOffcanvas"
                 aria-labelledby="menuOffcanvasLabel">
                 <div className="offcanvas-header  ">
-                    <h5 id="menuOffcanvasLabel" className="">Menu</h5>
+                    <p id="menuOffcanvasLabel" className="font-bold text-3xl font-[roboto]">Menu</p>
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="offcanvas-body gap-4 d-flex flex-column">
                     <div className="btn-group dropend">
-                        <a href="#" className=" text-decoration-none">
+                        <a href="#" className="text-black text-decoration-none font-[roboto] ">
                             Home
                         </a>
 
                     </div>
                     <div className="btn-group dropend">
-                        <a href="#" className=" -decoration-none">
+                        <a href="#" className="text-black text-decoration-none font-[roboto]">
                             Shop
                         </a>
                     </div>
                     <div className="btn-group dropend">
-                        <a href="#" className="text-decoration-none">
+                        <a href="#" className="text-black text-decoration-none font-[roboto]">
                             Product
                         </a>
                     </div>
                     <div className="btn-group dropend">
-                        <a href="#" className="text-decoration-none">
+                        <a href="#" className="text-black text-decoration-none font-[roboto]">
                             Blog
                         </a>
                     </div>
                     <div className="btn-group dropend">
-                        <a href="#" className="text-decoration-none">
+                        <a href="#" className="text-black text-decoration-none font-[roboto]">
                             About Us
                         </a>
                     </div>
                     <div className="btn-group dropend">
-                        <a href="#" className="text-decoration-none">
+                        <a href="#" className="text-black text-decoration-none font-[roboto]">
                             Contact Us
                         </a>
                     </div>
@@ -57,8 +57,8 @@ export default function Header() {
                     <img src={logoImg} alt="" className={styles.logo} />
                 </div>
                 <div className='allDropdowns d-none d-md-flex gap-5'>
-                    <div className="dropdown">
-                        <button className="btn btn-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div className="dropdown ">
+                        <button className="btn btn-transparent shadow-none dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Home
                         </button>
                         <ul className="dropdown-menu">
@@ -68,7 +68,7 @@ export default function Header() {
                         </ul>
                     </div>
                     <div className="dropdown">
-                        <button className="btn btn-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button className="btn btn-transparent shadow-none dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Shop
                         </button>
                         <ul className="dropdown-menu">
@@ -78,7 +78,7 @@ export default function Header() {
                         </ul>
                     </div>
                     <div className="dropdown">
-                        <button className="btn btn-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button className="btn btn-transparent shadow-none dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Products
                         </button>
                         <ul className="dropdown-menu">
@@ -88,7 +88,7 @@ export default function Header() {
                         </ul>
                     </div>
                     <div className="dropdown">
-                        <button className="btn btn-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button className="btn btn-transparent shadow-none dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             About Us
                         </button>
                         <ul className="dropdown-menu">
@@ -98,7 +98,7 @@ export default function Header() {
                         </ul>
                     </div>
                     <div className="dropdown">
-                        <button className="btn btn-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button className="btn btn-transparent shadow-none dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
                         </button>
                         <ul className="dropdown-menu">
