@@ -6,16 +6,18 @@ import Shopping from '../../components/ShoppingItems/Shopping'
 export default function ShopPage() {
     return (
         <div className='shopPage '>
-            <div className='flex justify-end'>
+          <div className='relative'>
+          <div className='flex justify-end'>
                 <img src={back} className=' object-cover'></img>
             </div>
-            <div className="transition text-center breadcrumbs flex flex-col items-center justify-center">
+            <div className="md:absolute md:top-1/2 md:left-1/2 transition text-center breadcrumbs flex flex-col items-center justify-center">
                 <p className='font-[roboto] font-bold uppercase text-3xl mb-2'>Shop</p>
                 <ul className='flex gap-2 text-xs'>
                     <li className='font-[roboto] hover:text-[var(--brownish)] hover:font-bold'><a>Home</a></li>
                     <li className='font-[roboto] hover:text-[var(--brownish)] hover:font-bold'><a>Shop</a></li>
                 </ul>
             </div>
+          </div>
             <div className=' container grid grid-cols-1 md:grid-cols-4 gap-3'>
                 <div className='flex flex-col text-center gap-2 justify-center items-center'>
                     <div className='overflow-hidden '>

@@ -11,8 +11,8 @@ export default function Subscribe() {
                         <p className='capitalize font-bold font-[roboto] text-4xl '>Don't want to miss our <br></br>promos and new products?</p>
                         <p className='font-[roboto] text-sm'>Join now for the inside track on our latest offers!</p>
                         <div className='relative '>
-                            <input placeholder='Enter Your Email' className='bg-white text-gray-500 font-[roboto] p-3 rounded w-full'></input>
-                            <button className='bg-[var(--brownish)] absolute right-1 py-2.5 px-4 rounded top-1 text-xs font-[roboto] hover:bg-amber-900'>Submit</button>
+                            <input placeholder='Enter Your Email' className='form-control bg-white text-gray-500 font-[roboto] p-3 rounded w-full'></input>
+                            <button className='bg-[var(--brownish)] transition absolute right-1 py-2.5 px-4 rounded top-1 text-xs font-[roboto] hover:bg-amber-900 font-semibold '>Submit</button>
                         </div>
                     </div>
                 </div>

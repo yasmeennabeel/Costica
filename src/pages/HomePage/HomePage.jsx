@@ -1,9 +1,6 @@
 import React from 'react'
 import mainModel from '../../assets/imgs/mainModel.webp';
 import mainPagePhoto from '../../assets/imgs/mainPagePhoto.webp';
-import styles from './HomePage.module.css'
-import Products from '../../components/Products';
-import ShopItems from '../../components/ShopItems/ShopItems';
 import Story from '../../components/Story/Story';
 import Trending from '../../components/Trending/Trending';
 import Subscribe from '../../components/Subscribe/Subscribe';
@@ -11,6 +8,7 @@ import Reviews from '../../components/Reviews/Reviews';
 import Policies from '../../components/Policies/Policies';
 import Blog from '../../components/Blog/Blog';
 import Footer from '../../components/Footer';
+import ShopHome from '../../components/ShopHome/ShopHome';
 
 export default function HomePage() {
   return (
@@ -38,8 +36,7 @@ export default function HomePage() {
 
       </div>
 
-      <Products></Products>
-      <ShopItems></ShopItems>
+      <ShopHome></ShopHome>
       <Story></Story>
       <Trending></Trending>
       <Subscribe></Subscribe>
