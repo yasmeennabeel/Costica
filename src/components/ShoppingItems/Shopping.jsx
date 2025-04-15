@@ -6,12 +6,13 @@ import Footer from '../../components/Footer';
 
 export default function Shopping() {
     return (
-        <div className='shopping'>
-            <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
+        <div className='shopping '>
+            <div className='grid grid-cols-1 md:grid-cols-4 gap-4 my-16'>
                 <div className='hidden md:flex md:flex-col container '>
-                    <div className='flex gap-3 items-center text-center'>
-                        <FaFilter className='hover:text-[var(--brownish)] hover:cursor-pointer' />
+                    <div className='flex items-center  justify-between'>
                         <p className='uppercase font-[roboto] font-semibold m-0 text-lg'>Filter by</p>
+                        <FaFilter className='hover:text-[var(--brownish)] hover:cursor-pointer' />
+
                     </div>
                     <div className='categories'>
                         <div className="dropdown dropdown-open">
