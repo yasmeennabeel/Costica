@@ -1,8 +1,10 @@
 .myHeader {
     background-color: #ffffff;
-.logo{
-    width: 120px;
-}
+
+    .logo {
+        width: 120px;
+    }
+
     button {
 
         &:hover {
@@ -19,6 +21,27 @@
             color: var(--brownish);
             cursor: pointer;
 
+        }
+    }
+
+    .activeLink {
+        background-color: var(--darkgreen);
+        border-radius: 1rem;
+        padding: 1rem;
+        color: white;
+
+    }
+
+    .link {
+
+        padding: 1rem;
+        transition: ease all 400ms;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--darkgreen);
+            border-radius: 1rem;
+            color:white
         }
     }
 }

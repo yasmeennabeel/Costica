@@ -10,51 +10,51 @@ import { SiAmericanexpress } from 'react-icons/si'
 export default function Footer() {
   return (
 <>
-<footer className="container footer font-[roboto] mt-12 flex flex-col md:flex-row justify-between items-center md:items-start">
+<footer className="container footer font-[roboto] !mt-12 flex flex-col md:flex-row justify-between items-center md:items-start ">
       <aside className='flex flex-col items-center md:items-start gap-2.5 text-xs'>
         <img src={logo} className='mb-4 w-[120px]'></img>
-        <div className='loc flex gap-2 '>
-          <FaLocationDot />
+        <div className='loc flex gap-2 group cursor-pointer'>
+          <FaLocationDot className='group-hover:text-[var(--brownish)] transition'/>
           <p>2357 Gordon Street, CA</p>
         </div>
-        <div className='num flex gap-2 '>
-          <MdWifiCalling3 />
+        <div className='num flex gap-2 cursor-pointer group '>
+          <MdWifiCalling3 className='group-hover:text-[var(--brownish)] transition'/>
           <p>+(123) - 456 - 7890</p>
         </div>
-        <div className='mail flex gap-2 '>
-          <MdEmail />
+        <div className='mail flex gap-2 cursor-pointer group '>
+          <MdEmail className='group-hover:text-[var(--brownish)] transition '/>
           <p>Costica@example.com</p>
         </div>
-        <div className='work flex gap-2 '>
-          <SlCalender />
+        <div className='work flex gap-2 cursor-pointer group '>
+          <SlCalender className='group-hover:text-[var(--brownish)] transition '/>
           <p>All Day: 9:00AM - 22:00PM</p>
         </div>
       </aside>
       <div className="divider lg:divider-horizontal !w-0.25 bg-[var(--offwhite)]"></div>
 
       <nav className='flex flex-col gap-3 cursor-pointer text-xs'>
-        <p className="font-semibold text-lg">Categories</p>
+        <p className="font-semibold text-[0.9rem]">Categories</p>
         <p className="transition hover:text-[var(--brownish)] ">Skincare Solutions</p>
         <p className="transition hover:text-[var(--brownish)]">Complexion Perfection</p>
         <p className="transition hover:text-[var(--brownish)]">Eye Enhancements</p>
         <p className="transition hover:text-[var(--brownish)]">Radiant Lips</p>
       </nav>
       <nav className='flex flex-col gap-3 cursor-pointer text-xs'>
-        <p className="font-semibold text-lg">Let Us Help</p>
+        <p className="font-semibold text-[0.9rem]">Let Us Help</p>
         <p className="transition hover:text-[var(--brownish)]">Help Center</p>
         <p className="transition hover:text-[var(--brownish)]">Track My Order</p>
         <p className="transition hover:text-[var(--brownish)]">Cancel My Order</p>
         <p className="transition hover:text-[var(--brownish)]">Return My Order</p>
       </nav>
       <nav className='flex flex-col gap-3 cursor-pointer text-xs'>
-        <p className="font-semibold text-lg">Our Policies</p>
+        <p className="font-semibold text-[0.9rem]">Our Policies</p>
         <p className="transition hover:text-[var(--brownish)]">Shipping & Delivery</p>
         <p className="transition hover:text-[var(--brownish)]">Returns policy</p>
         <p className="transition hover:text-[var(--brownish)]">Terms & Conditions</p>
         <p className="transition hover:text-[var(--brownish)]">Privacy policy</p>
       </nav>
       <nav className='flex flex-col gap-3 cursor-pointer text-xs'>
-        <p className="font-semibold text-lg">Our Social</p>
+        <p className="font-semibold text-[0.9rem]">Our Social</p>
         <div className='flex gap-4'>
           <a><FaXTwitter className='hover:bg-[var(--brownish)] w-[25px] h-[25px] hover:rounded-full p-1 hover:text-white transition'/></a>
           <a><FaFacebook className='hover:bg-[var(--brownish)] w-[25px] h-[25px] hover:rounded-full p-1 hover:text-white transition' /></a>
@@ -71,9 +71,9 @@ export default function Footer() {
       </nav>
    
     </footer>
-       <div className="text-center p-4">
+       <div className="text-center p-4 ">
        <aside>
-         <p className='font-[roboto] text-sm'>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+         <p className='text-xs m-4'>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
        </aside>
      </div>
      </>

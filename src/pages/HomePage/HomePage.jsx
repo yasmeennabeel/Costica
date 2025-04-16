@@ -43,7 +43,6 @@ export default function HomePage() {
       <Policies></Policies>
       <Reviews></Reviews>
       <Blog></Blog>
-      <Footer></Footer>
     </>
   )
 }

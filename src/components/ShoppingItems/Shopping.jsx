@@ -158,7 +158,6 @@ export default function Shopping() {
                     <button className="join-item btn btn-md">4</button>
                 </div>
             </div>
-            <Footer></Footer>
         </div>
     )
 }

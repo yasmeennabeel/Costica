@@ -4,8 +4,11 @@ import Header from './components/Header'
 import HomePage from './pages/HomePage/HomePage'
 import ShopPage from './pages/ShopPage/ShopPage'
 import Login from './pages/Login/Login'
+import Footer from './components/Footer'
 
 export default function App() {
+  let url = window.location.href;
+  let path = url.split('/')[3];
   return (
     <div className='App col-12'>
       <Header></Header>
@@ -17,6 +20,8 @@ export default function App() {
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='*' element={<h1>404 Page</h1>}></Route>
       </Routes>
+      <Footer></Footer>
+
     </div>
   )
 }
