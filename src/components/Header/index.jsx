@@ -30,13 +30,11 @@ export default function Header() {
                        {
                         links.map((el,index)=>{
                             return(
-                                <div className="">
                                 <Link to={el.path} key={index} className={` ${styles.link} nav-link p-3 d-flex gap-2 items-center`} >
                                  {el.icon}
                                    <p className='m-0'> {el.name}</p>
                                 </Link>
     
-                            </div>
                             )
                         })
                        }

@@ -42,7 +42,7 @@ export default function Login() {
                                         <label className='font-bold font-[roboto] text-xs !text-[var(--darkgreen)]'>Enter your Password</label>
                                         <label className="input validator bg-white relative">
                                             <FaKey className='!text-[var(--darkgreen)] absolute top-3.5 left-[-8px] z-10' />
-                                            <input type="password" required placeholder="Password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" className='bg-white absolute form-control top-0 w-full border-1 border-[var(--light)] p-2' />
+                                            <input type="password" required placeholder="Password" minLength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" className='bg-white absolute form-control top-0 w-full border-1 border-[var(--light)] p-2' />
                                         </label>
                                         <p className="validator-hint hidden">
                                             Must be more than 8 characters, including
@@ -74,7 +74,7 @@ export default function Login() {
                                         <label className='font-bold font-[roboto] text-xs !text-[var(--darkgreen)]'>Enter your Password</label>
                                         <label className="input validator bg-white relative">
                                             <FaKey className='!text-[var(--darkgreen)] absolute top-3.5 left-[-8px] z-10' />
-                                            <input type="password" required placeholder="Password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" className='bg-white absolute form-control top-0 w-full border-1 border-[var(--light)] p-2' />
+                                            <input type="password" required placeholder="Password" minLength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" className='bg-white absolute form-control top-0 w-full border-1 border-[var(--light)] p-2' />
                                         </label>
                                         <p className="validator-hint hidden">
                                             Must be more than 8 characters, including
