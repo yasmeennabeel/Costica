@@ -6,7 +6,7 @@ import Footer from '../../components/Footer';
 
 export default function Shopping() {
     return (
-        <div className='shopping '>
+        <div className='shopping container'>
             <div className='grid grid-cols-1 md:grid-cols-4 gap-4 my-16'>
                 <div className='hidden md:flex md:flex-col container '>
                     <div className='flex items-center  justify-between'>
@@ -44,7 +44,7 @@ export default function Shopping() {
 
                 </div>
 
-                <div className='sm:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 '>
+                <div className='overflow-auto sm:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 '>
                     <div className="card bg-base-100  border-0">
                         <figure className="px-10 pt-10 ">
                             <div className='relative overflow-hidden'>

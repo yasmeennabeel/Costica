@@ -2,51 +2,38 @@ import React from 'react'
 import back from '../../assets/imgs/back.png'
 import model1 from '../../assets/imgs/model.webp'
 import Shopping from '../../components/ShoppingItems/Shopping'
-
+import { useCategories } from '../../store';
+import NavProduct from '../../components/NavProduct/NavProduct';
+import styles from './ShopPage.module.css'
+import { useNavigate } from 'react-router-dom';
 export default function ShopPage() {
+    const { data: appCategories } = useCategories();
+    const navigate = useNavigate();
+    const handleClick = (path) => {
+        navigate(path)
+    }
     return (
         <div className='shopPage '>
-            <div className='relative'>
-                <div className='flex justify-end'>
-                    <img src={back} className=' object-cover'></img>
-                </div>
-                <div className="md:absolute md:top-1/2 md:left-1/2 transition text-center breadcrumbs flex flex-col items-center justify-center">
-                    <p className='font-[roboto] font-bold uppercase text-3xl mb-2'>Shop</p>
-                    <ul className='flex gap-2 text-xs'>
-                        <li className='font-[roboto] hover:text-[var(--brownish)] hover:font-bold'><a>Home</a></li>
-                        <li className='font-[roboto] hover:text-[var(--brownish)] hover:font-bold'><a>Shop</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div className=' container grid grid-cols-1 md:grid-cols-4 gap-3'>
-                <div className='flex flex-col text-center gap-2 justify-center items-center'>
-                    <div className='overflow-hidden '>
-                        <img src={model1} className='rounded-full w-[150px] md:w-[200px] transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer'></img>
-                    </div>
-                    <p className='text-sm font-[roboto] m-0 font-bold hover:text-[var(--brownish)] cursor-pointer'>Face Serums</p>
-                    <p className='text-xs font-[roboto]'>19 products</p>
-                </div>
-                <div className='flex flex-col text-center gap-2 justify-center items-center'>
-                    <div className='overflow-hidden '>
-                        <img src={model1} className='rounded-full w-[150px] md:w-[200px] transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer'></img>
-                    </div>
-                    <p className='text-sm font-[roboto] m-0 font-bold hover:text-[var(--brownish)] cursor-pointer'>Face Serums</p>
-                    <p className='text-xs font-[roboto]'>19 products</p>
-                </div>
-                <div className='flex flex-col text-center gap-2 justify-center items-center'>
-                    <div className='overflow-hidden '>
-                        <img src={model1} className='rounded-full w-[150px] md:w-[200px] transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer'></img>
-                    </div>
-                    <p className='text-sm font-[roboto] m-0 font-bold hover:text-[var(--brownish)] cursor-pointer'>Face Serums</p>
-                    <p className='text-xs font-[roboto]'>19 products</p>
-                </div>
-                <div className='flex flex-col text-center gap-2 justify-center items-center'>
-                    <div className='overflow-hidden '>
-                        <img src={model1} className='rounded-full w-[150px] md:w-[200px] transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer'></img>
-                    </div>
-                    <p className='text-sm font-[roboto] m-0 font-bold hover:text-[var(--brownish)] cursor-pointer'>Face Serums</p>
-                    <p className='text-xs font-[roboto]'>19 products</p>
-                </div>
+            <NavProduct></NavProduct>
+
+            <div className='container flex flex-wrap col-12 justify-center items-center text-center '>
+                {
+                    appCategories.map((el) => (
+                        <div onClick={()=>{handleClick(el.path)}} className='col-10 col-md-3 justify-center items-center text-center'>
+                            <div className={`'p-3 ' ${styles.catCard}`}>
+                                <div className='flex flex-col gap-3 justify-center items-center'>
+                                    <div className='overflow-hidden'>
+                                        <img src={el.imgUrl} alt="" className='transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer' />
+
+                                    </div>
+                                    <p key={el.documentId} className='font-[roboto] text-md font-bold hover:!text-[var(--brownish)] transition cursor-pointer'>{el.name}</p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
             <Shopping></Shopping>
         </div>
