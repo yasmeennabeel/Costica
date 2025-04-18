@@ -5,19 +5,24 @@ import styles from "./index.module.css"
 import { IoIosHome } from 'react-icons/io'
 import { FaShoppingBasket, FaUserCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { IoSettingsSharp } from 'react-icons/io5'
 
 export default function Header() {
+    const [activeTab, setActiveTab] = useState(0)
+
     const [links] = useState([
-        { name: "Home", icon: <IoIosHome />, path: '/', },
-        { name: "Shop", icon: <FaShoppingBasket />, path: '/shop' },
-        { name: "Profile", icon: <FaUserCircle />, path: "/login" }
+        {id:1, name: "Home", icon: <IoIosHome />, path: '/', },
+        {id:3, name: "Shop", icon: <FaShoppingBasket />, path: '/shop' },
+        {id:3, name: "Profile", icon: <FaUserCircle />, path: "/login" },
+        {id:4, name: "Settings", icon: <IoSettingsSharp />, path: "/settings" },
+
     ])
     return (
 
         <header className={styles.myHeader}>
 
             <div className='container col-12 d-flex justify-content-between align-items-center w-100 p-4'>
-                <div className="menu-icon d-flex gap-3 hover:text-[var(--brownish)] cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">
+                <div className="menu-icon text-2xl d-flex gap-3 hover:text-[var(--brownish)] cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">
                     <CiMenuBurger />
                 </div>
                 <div className="offcanvas offcanvasLeft offcanvas-start px-3 firstCanva " tabIndex="-1" id="menuOffcanvas"
@@ -30,7 +35,7 @@ export default function Header() {
                        {
                         links.map((el,index)=>{
                             return(
-                                <Link to={el.path} key={index} className={` ${styles.link} nav-link p-3 d-flex gap-2 items-center`} >
+                                <Link onClick={()=>{setActiveTab(index)}} to={el.path} key={index} className={`nav-link p-3 d-flex gap-2 items-center  ${styles.link} + " " +  ${activeTab == index && styles.activeLink } `} >
                                  {el.icon}
                                    <p className='m-0'> {el.name}</p>
                                 </Link>

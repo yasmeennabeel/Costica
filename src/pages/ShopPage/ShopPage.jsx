@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import back from '../../assets/imgs/back.png'
 import model1 from '../../assets/imgs/model.webp'
 import Shopping from '../../components/ShoppingItems/Shopping'
@@ -7,11 +7,14 @@ import NavProduct from '../../components/NavProduct/NavProduct';
 import styles from './ShopPage.module.css'
 import { useNavigate } from 'react-router-dom';
 export default function ShopPage() {
-    const { data: appCategories } = useCategories();
+    const { data: appCategories, setActiveCategory } = useCategories();
     const navigate = useNavigate();
-    const handleClick = (path) => {
+    const handleClick = (path, activeCategoryID) => {
         navigate(path)
+        setActiveCategory(activeCategoryID)
     }
+
+
     return (
         <div className='shopPage '>
             <NavProduct></NavProduct>
@@ -19,7 +22,7 @@ export default function ShopPage() {
             <div className='container flex flex-wrap col-12 justify-center items-center text-center '>
                 {
                     appCategories.map((el) => (
-                        <div onClick={()=>{handleClick(el.path)}} className='col-10 col-md-3 justify-center items-center text-center'>
+                        <div onClick={()=>{handleClick(el.path, el.documentId)}} className='col-10 col-md-3 justify-center items-center text-center'>
                             <div className={`'p-3 ' ${styles.catCard}`}>
                                 <div className='flex flex-col gap-3 justify-center items-center'>
                                     <div className='overflow-hidden'>

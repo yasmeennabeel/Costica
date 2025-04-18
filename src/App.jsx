@@ -23,7 +23,6 @@ export default function App() {
         <Route path='shop' element={<ShopPage></ShopPage>}></Route>
         <Route path='shop/:catName' element={<Products></Products>}></Route>
         <Route path='settings' element={<h1>Settings</h1>}></Route>
-        <Route path='search' element={<h1>Search</h1>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='*' element={<h1>404 Page</h1>}></Route>
       </Routes>

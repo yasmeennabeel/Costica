@@ -1,37 +1,35 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom'
-import skincare from "../../assets/imgs/model.webp";
-import facecare from '../../assets/imgs/img-1-14.webp'
-import haircare from '../../assets/imgs/testimonial-9-181x260.jpg'
-import makeup from '../../assets/imgs/model3.webp'
+import { useNavigate } from 'react-router-dom'
 import NavProduct from '../../components/NavProduct/NavProduct';
 import { useCategories } from '../../store';
 
 export default function Products() {
-            const {data : appCategories} = useCategories();
-    
-    const params = useParams();
+    const { data: appCategories, resetActiveCategory, activeCategoryID } = useCategories();
     const navigate = useNavigate();
     const [check, setCheck] = useState(false);
-
+const [categoryInfo, setCategoryInfo] = useState({})
 
     useEffect(() => {
-        if(params){
-            let obj = appCategories.find((el) => { return el.path == params.catName });
+        let obj = appCategories.find((el) => { return el.documentId == activeCategoryID });
+       
 
             if (obj) {
+                setCategoryInfo(obj)
                 setCheck(true);
             } else {
                 navigate('/error');
             }
+        
+        return () => {
+            // will be executed after component is unmounted
+            resetActiveCategory();
         }
-     
     }, [])
     return (
         check && <div className='products overflow-auto'>
-            <NavProduct tabName={(params.catName)}></NavProduct>
-            Product in {params.catName}
-            
+            <NavProduct tabName={(categoryInfo.name)}></NavProduct>
+            Product in {categoryInfo.name}
+
         </div>
     )
 }
