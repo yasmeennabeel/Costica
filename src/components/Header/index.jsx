@@ -6,10 +6,11 @@ import { IoIosHome } from 'react-icons/io'
 import { FaShoppingBasket, FaUserCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { IoSettingsSharp } from 'react-icons/io5'
+import { useCart } from '../../store'
 
 export default function Header() {
     const [activeTab, setActiveTab] = useState(0)
-
+const {openCart, productsInCart } = useCart()
     const [links] = useState([
         {id:1, name: "Home", icon: <IoIosHome />, path: '/', },
         {id:3, name: "Shop", icon: <FaShoppingBasket />, path: '/shop' },
@@ -25,7 +26,7 @@ export default function Header() {
                 <div className="menu-icon text-2xl d-flex gap-3 hover:text-[var(--brownish)] cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">
                     <CiMenuBurger />
                 </div>
-                <div className="offcanvas offcanvasLeft offcanvas-start px-3 firstCanva " tabIndex="-1" id="menuOffcanvas"
+                <div className="offcanvas z-999 offcanvasLeft offcanvas-start px-3 firstCanva " tabIndex="-1" id="menuOffcanvas"
                     aria-labelledby="menuOffcanvasLabel">
                     <div className="offcanvas-header  ">
                         <p id="menuOffcanvasLabel" className="font-bold text-3xl font-[roboto]">Menu</p>
@@ -106,7 +107,10 @@ export default function Header() {
                 <div className='icons d-flex gap-3 '>
                     <CiSearch size={24} className={styles.icon} />
                     <CiUser size={24} className={styles.icon} />
-                    <CiShoppingCart size={24} className={styles.icon} />
+                   <div className='flex items-center gap-2 relative '>
+                   <CiShoppingCart onClick={openCart} size={24} className={styles.icon} />
+                   <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-[var(--brownish)] text-white text-xs font-semibold flex items-center justify-center shadow-md hover:bg-[var(--offwhite)] hover:!text-[var(--darkgreen)] cursor-pointer">{productsInCart.length}</span>
+                   </div>
                     <CiStar size={24} className={styles.icon} />
                 </div>
             </div>

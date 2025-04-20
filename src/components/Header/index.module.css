@@ -1,5 +1,6 @@
 .myHeader {
     background-color: #ffffff;
+    
 
     .logo {
         width: 120px;
@@ -41,7 +42,8 @@
         &:hover {
             background-color: var(--darkgreen);
             border-radius: 1rem;
-            color:var(--offwhite)
+            color:var(--offwhite
+            )
         }
     }
 }

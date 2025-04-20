@@ -1,24 +1,43 @@
 // global state
 // initiate state
 import { create } from "zustand";
-import model1 from '../assets/imgs/model.webp'
-import model2 from '../assets/imgs/model2.webp'
-import model3 from '../assets/imgs/model3.webp'
-import model4 from '../assets/imgs/model4.webp'
+
 
 
 export const useCategories = create((set) => ({
     // returns object feha value of state and actions of state (method)
-    data: [
-        { documentId: 1, name: "Skin Care", path: 'skincare', price: 550, imgUrl: model1 },
-        { documentId: 2, name: "Face Care", path: 'facecare', price: 400, imgUrl: model2 },
-        { documentId: 3, name: "Hair Care", path: 'haircare', price: 350, imgUrl: model3 },
-        { documentId: 4, name: "Makeup", path: 'makeup', price: 550, imgUrl: model4 },
-    ],
+    domain: 'http://localhost:1337',
 
+    setData: (categories) => (set(() => ({ data: categories }))),
     activeCategoryID: 0,
     setActiveCategory: (activeTab) => (set(() => ({ activeCategoryID: activeTab }))),
     resetActiveCategory: () => (set(() => ({ activeCategoryID: 0 })))
 
 }))
+
+export const useCart = create((set)=>({
+cartIndex: false,
+productsInCart: [{
+    documentId: 1,
+    product_name: "iphone",
+    product_price: 600,
+    qty: 2,
+    product_img: ""
+},
+{
+    documentId: 2,
+    product_name: "iphone",
+    product_price: 600,
+    qty: 2,
+    product_img: ""
+},{
+    documentId: 3,
+    product_name: "iphone",
+    product_price: 600,
+    qty: 2,
+    product_img: ""
+}],
+openCart: ()=>(set (()=>({cartIndex: true}))),
+closeCart: ()=>(set(()=>({cartIndex: false})))
+}));
 

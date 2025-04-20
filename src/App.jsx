@@ -6,9 +6,11 @@ import ShopPage from './pages/ShopPage/ShopPage'
 import Login from './pages/Login/Login'
 import Footer from './components/Footer'
 import Products from './pages/Products/Products'
+import SideCart from './components/SideCart/SideCart'
+import { useCart } from './store'
 
 export default function App() {
-  
+  const {cartIndex} = useCart()
  const [path, setPath] = useState();
  const location = useLocation();
  useEffect(()=>{
@@ -18,10 +20,11 @@ export default function App() {
    return (
     <div className='App col-12'>
       <Header></Header>
+      {cartIndex && <SideCart></SideCart>}
       <Routes>
         <Route path='/' element={<HomePage></HomePage>}></Route>
         <Route path='shop' element={<ShopPage></ShopPage>}></Route>
-        <Route path='shop/:catName' element={<Products></Products>}></Route>
+        <Route path='shop/:id' element={<Products></Products>}></Route>
         <Route path='settings' element={<h1>Settings</h1>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='*' element={<h1>404 Page</h1>}></Route>
@@ -31,3 +34,9 @@ export default function App() {
     </div>
   )
 }
+
+
+//Categories (Skin care- face care - hair care - makeup)
+//Products in each category (fe relation between each product and its category)
+// Create Tables 
+// Two types of users (app-users and admin)

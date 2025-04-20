@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import back from '../../assets/imgs/back.png'
 import model1 from '../../assets/imgs/model.webp'
 import Shopping from '../../components/ShoppingItems/Shopping'
@@ -6,14 +6,36 @@ import { useCategories } from '../../store';
 import NavProduct from '../../components/NavProduct/NavProduct';
 import styles from './ShopPage.module.css'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 export default function ShopPage() {
-    const { data: appCategories, setActiveCategory } = useCategories();
+
+    // const { data: appCategories,
+    const {domain, setData, setActiveCategory } = useCategories();
     const navigate = useNavigate();
-    const handleClick = (path, activeCategoryID) => {
-        navigate(path)
-        setActiveCategory(activeCategoryID)
+    const handleClick = (documentId) => {
+        navigate(documentId)
+        setActiveCategory(documentId)
     }
 
+    const [appCategories, setAppCategories] = useState([]);
+
+
+    const getData = () => {
+        let endpoint = "/api/categories"
+        let url = domain + endpoint;
+
+        axios.get(url, {
+            params: {
+                populate: '*'
+            }
+        }).then((res) => {
+            setAppCategories(res.data.data)
+        })
+    }
+
+    useEffect(() => {
+        getData();
+    })
 
     return (
         <div className='shopPage '>
@@ -22,14 +44,14 @@ export default function ShopPage() {
             <div className='container flex flex-wrap col-12 justify-center items-center text-center '>
                 {
                     appCategories.map((el) => (
-                        <div onClick={()=>{handleClick(el.path, el.documentId)}} className='col-10 col-md-3 justify-center items-center text-center'>
+                        <div key={el.documentId} onClick={() => { handleClick(el.documentId) }} className='col-10 col-md-3 justify-center items-center text-center'>
                             <div className={`'p-3 ' ${styles.catCard}`}>
                                 <div className='flex flex-col gap-3 justify-center items-center'>
                                     <div className='overflow-hidden'>
-                                        <img src={el.imgUrl} alt="" className='transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer' />
+                                        <img src={domain + el.category_img.url} alt="" className='transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer' />
 
                                     </div>
-                                    <p key={el.documentId} className='font-[roboto] text-md font-bold hover:!text-[var(--brownish)] transition cursor-pointer'>{el.name}</p>
+                                    <p className='font-[roboto] text-md font-bold hover:!text-[var(--brownish)] transition cursor-pointer'>{el.category_name}</p>
                                 </div>
 
 
