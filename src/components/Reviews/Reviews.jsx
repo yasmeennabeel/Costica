@@ -3,7 +3,7 @@ import review1 from '../../assets/imgs/testimonial-3-181x260.jpg'
 
 export default function Reviews() {
     return (
-        <div className='reviewsSections container my-16'>
+        <div className='reviewsSections container my-16'  data-aos="fade-up">
             <div className=' flex flex-col text-center'>
             <p className='uppercase font-[roboto] '>Testimonials</p>
             <p className='font-[roboto] font-bold text-2xl md:text-4xl capitalize'>What our customers say</p>

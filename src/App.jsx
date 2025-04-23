@@ -15,7 +15,7 @@ export default function App() {
  const location = useLocation();
  useEffect(()=>{
   setPath(location.pathname);
-  console.log(location.pathname)
+  // console.log(location.pathname)
  },[location.pathname])
    return (
     <div className='App col-12'>

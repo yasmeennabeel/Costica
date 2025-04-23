@@ -3,7 +3,7 @@ import blogImg1 from '../../assets/imgs/blog-5-660x434.jpg'
 
 export default function Blog() {
     return (
-        <div className='blog container my-16'>
+        <div className='blog container my-16'  data-aos="fade-up">
             <div className='text-center'>
                 <p className='uppercase font-[roboto]'>blog</p>
                 <p className='capitalize font-[roboto] font-bold text-4xl'>Our latest News updates</p>

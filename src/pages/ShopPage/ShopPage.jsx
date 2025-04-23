@@ -7,7 +7,15 @@ import NavProduct from '../../components/NavProduct/NavProduct';
 import styles from './ShopPage.module.css'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import 'aos/dist/aos.css'
+import Aos from 'aos';
 export default function ShopPage() {
+      useEffect(() => {
+        Aos.init({
+          duration: 900,
+          once: false
+        });
+      }, []);
 
     // const { data: appCategories,
     const {domain, setData, setActiveCategory } = useCategories();
@@ -38,7 +46,7 @@ export default function ShopPage() {
     })
 
     return (
-        <div className='shopPage '>
+        <div className='shopPage ' data-aos="fade-up">
             <NavProduct></NavProduct>
 
             <div className='container flex flex-wrap col-12 justify-center items-center text-center '>
@@ -61,6 +69,7 @@ export default function ShopPage() {
                 }
             </div>
             <Shopping></Shopping>
+            <br></br>
         </div>
     )
 }

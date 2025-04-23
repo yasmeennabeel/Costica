@@ -8,7 +8,7 @@ export default function NavProduct({ tabName }) {
     const {activeCategoryID} = useCategories();
 
     return (
-        <header className='p-6 flex justify-center items-center mt-4 '>
+        <header className='flex justify-center items-center mt-4 ' data-aos="fade-up">
             <div className='bg-contain bg-no-repeat bg-right  w-full h-64' style={{backgroundImage: `url(${back})`}}>
              <div className='flex items-center justify-center gap-2 capitalize '>
              { activeCategoryID != 0 &&  <IoIosArrowBack onClick={()=>{navigate('/shop')}} className='p-1 text-2xl cursor-pointer text-[var(--darkgreen)] hover:!text-[var(--offwhite)] hover:!bg-[var(--darkgreen)] hover:!rounded-full' />}

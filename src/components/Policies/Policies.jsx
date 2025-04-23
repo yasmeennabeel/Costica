@@ -6,7 +6,7 @@ import shipImg4 from '../../assets/imgs/p-1-4.png'
 
 export default function Policies() {
     return (
-        <div className='policies container my-14'>
+        <div className='policies container my-14'  data-aos="fade-up">
             <div className=' flex flex-col md:flex-row justify-center'>
                 <div className=' grid grid-cols-1 md:grid-cols-4 gap-8'>
                     <div className='justify-center items-center flex flex-col gap-2'>

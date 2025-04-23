@@ -15,29 +15,44 @@ export const useCategories = create((set) => ({
 
 }))
 
-export const useCart = create((set)=>({
-cartIndex: false,
-productsInCart: [{
-    documentId: 1,
-    product_name: "iphone",
-    product_price: 600,
-    qty: 2,
-    product_img: ""
-},
-{
-    documentId: 2,
-    product_name: "iphone",
-    product_price: 600,
-    qty: 2,
-    product_img: ""
-},{
-    documentId: 3,
-    product_name: "iphone",
-    product_price: 600,
-    qty: 2,
-    product_img: ""
-}],
-openCart: ()=>(set (()=>({cartIndex: true}))),
-closeCart: ()=>(set(()=>({cartIndex: false})))
+export const useCart = create((set) => ({
+    cartIndex: false,
+    productsInCart: [],
+    openCart: () => (set(() => ({ cartIndex: true }))),
+    closeCart: () => (set(() => ({ cartIndex: false }))),
+
+    decrementQty: (documentId) => (set((state) => {
+        let copyofCart = [...state.productsInCart];
+        let index = copyofCart.findIndex(el => el.documentId == documentId);
+
+        if (copyofCart[index].qty > 1) {
+            copyofCart[index].qty--
+
+        } else {
+            copyofCart.splice(index, 1);
+        }
+
+
+        return {productsInCart: copyofCart};
+    })),
+
+    incrementQty: (documentId) => (set((state) => {
+        let copyofCart = [...state.productsInCart];
+        let index = copyofCart.findIndex(el => el.documentId == documentId);
+        copyofCart[index].qty++
+
+        return {productsInCart: copyofCart};
+    })),
+    addToCart: (product) => (set((state)=>{
+        let copy = [...state.productsInCart];
+        let obj = copy.find(el=>el.documentId== product.documentId)
+        if(obj){
+            state.incrementQty(product.documentId)
+        }else{
+            copy.push(product);
+        }
+        return {productsInCart: copy}
+    })),
+    resetCart: ()=>(set(()=>({productsInCart:[]})))
 }));
 
