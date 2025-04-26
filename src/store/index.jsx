@@ -2,7 +2,7 @@
 // initiate state
 import { create } from "zustand";
 
-
+export const domain =  'http://localhost:1337'
 
 export const useCategories = create((set) => ({
     // returns object feha value of state and actions of state (method)

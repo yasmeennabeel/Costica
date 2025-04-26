@@ -28,44 +28,75 @@ export default function SideCart() {
   }, [productsInCart])
   return (
     <div className={styles.overlay} onClick={closeCart}>
-      <div onClick={(e) => e.stopPropagation()} className=" flex flex-col p-3 animate__animated animate__fadeInRight w-[450px] h-[100vh] overflow-auto bg-white fixed top-0 right-0">
+      <div onClick={(e) => e.stopPropagation()} className="gap-4 flex flex-col p-3 animate__animated animate__fadeInRight w-[600px] h-[100vh] overflow-auto bg-white fixed top-0 right-0">
         <p>Your Cart</p>
         <div className="flex flex-col gap-2">
-        <div className="flex flex-col gap-5">
-          {
-            productsInCart.map((el, index) => {
-              return (
 
-                <div key={el.documentId} className="flex gap-3 justify-center items-center">
-                  <p className="m-0"> {index + 1} </p>
-                  <div className="flex items-center gap-2">
-                    <img src={el.product_img} className="w-[50px] h-[50px] object-contain"></img>
-                    <p className="m-0">{el.product_name}</p>
-                  </div>
-                  <p className="m-0 p-0">${el.product_price}</p>
-                  <div className="flex items-center justify-center gap-3">
-                    <button className="btn btn-danger w-[25px] h-[25px] p-0 " onClick={() => { decrementQty(el.documentId) }}> - </button>
-                    <p className="m-0 p-0">{el.qty}</p>
-                    <button className="btn btn-success w-[25px] h-[25px] p-0" onClick={() => { incrementQty(el.documentId) }}> + </button>
-                  </div>
-                  <div>${el.qty * el.product_price} </div>
-                  <br></br>
+          <table className="table ">
+            <thead>
+              <tr className="font-[roboto] text-md">
 
-                </div>
+                <th>Item Name</th>
+                <th>Price (per item)</th>
+                <th>Edit Quantity</th>
+                <th>Total</th>
 
-              )
-            })
-          }
-          <div className="flex  gap-5">
-            <p >Total</p>
-            <p>${total} </p>
-          </div>
+              </tr>
+            </thead>
+            <tbody className="text-center">
+              {
+                productsInCart.map((el, index) => {
+                  return (
+                    <tr>
+                      <td>
+                        <div className="flex items-center gap-3">
+                          <div className="avatar">
+                            <div className="mask mask-squircle h-12 w-12">
+                              <img
+                                src={el.product_img}
+                                alt="Avatar Tailwind CSS Component" />
+                            </div>
+                          </div>
+                          <div>
+                            <div className="font-bold">{el.product_name}</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p className="m-0 p-0">${el.product_price}</p>
+
+                      </td>
+
+                      <td>
+                        <div className="flex items-center justify-center gap-3">
+                          <button className="btn btn-danger w-[25px] h-[25px] p-0 " onClick={() => { decrementQty(el.documentId) }}> - </button>
+                          <p className="m-0 p-0">{el.qty}</p>
+                          <button className="btn btn-success w-[25px] h-[25px] p-0" onClick={() => { incrementQty(el.documentId) }}> + </button>
+                        </div>
+                      </td>
+                      <td>
+                        <div>${el.qty * el.product_price} </div>
+                      </td>
+                    </tr>
+                  )
+                })
+              }
+            </tbody>
+          </table>
+
 
         </div>
+        {<tfoot>
+          <tr>
+            <div className="flex  gap-5">
+              <p >Total Cart</p>
+              <p>${total} </p>
+            </div>
+          </tr>
+        </tfoot>}
 
         <button className="btn !font-[roboto] !bg-[var(--darkgreen)] !text-[var(--offwhite)] !uppercase hover:!bg-[var(--brownish)] hover:!text-[var(--light)] transition" >Checkout</button>
-          <button onClick={handleReset} className="btn  btn-danger !font-[roboto] !uppercase  transition" >Reset Cart</button>
-          </div>
+        <button onClick={handleReset} className="btn  btn-danger !font-[roboto] !uppercase  transition" >Reset Cart</button>
       </div>
     </div>
   )

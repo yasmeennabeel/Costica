@@ -38,7 +38,8 @@ export default function Shopping() {
 
                     {
                      products.map((el)=>{
-                        return   <ProductCard key={el.documentId} name={el.product_name} price={el.product_price} imgUrl={domain + el.product_img.url} product = {el}></ProductCard>
+                        return   <ProductCard key={el.documentId} name={el.product_name} price={el.product_price} 
+                        imgUrl={  el.product_img.url &&  (domain + el.product_img.url)} product = {el}></ProductCard>
                      })
                     }
                 </div>

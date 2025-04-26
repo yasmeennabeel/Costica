@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { useCart } from "../../store";
 
 export default function ProductCard({ name, price, imgUrl, product }) {
@@ -12,6 +13,7 @@ export default function ProductCard({ name, price, imgUrl, product }) {
             product_img: imgUrl
         };
         addToCart(obj)
+        toast.success('Added to cart!')
     }
     return (
         <div className="card shadow-2xl w-[300px] group">
@@ -19,6 +21,7 @@ export default function ProductCard({ name, price, imgUrl, product }) {
                 <div className='relative overflow-hidden'>
                     <div className="badge outline-0 border-0 px-3 z-10 absolute top-0 left-0 text-white bg-green-600 font-[roboto] m-0  font-extralight uppercase">New</div>
                     <img
+                        // src={imgUrl ? imgUrl : '../../assets/imgs/icon-cart.png' }
                         src={imgUrl}
                         alt="Lipstick"
                         className="rounded-xl transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer" />

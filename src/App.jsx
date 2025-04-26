@@ -8,6 +8,9 @@ import Footer from './components/Footer'
 import Products from './pages/Products/Products'
 import SideCart from './components/SideCart/SideCart'
 import { useCart } from './store'
+import Register from './pages/Register/Register'
+import { ToastContainer } from 'react-toastify'
+
 
 export default function App() {
   const {cartIndex} = useCart()
@@ -19,6 +22,7 @@ export default function App() {
  },[location.pathname])
    return (
     <div className='App col-12'>
+      <ToastContainer></ToastContainer>
       <Header></Header>
       {cartIndex && <SideCart></SideCart>}
       <Routes>
@@ -27,6 +31,7 @@ export default function App() {
         <Route path='shop/:id' element={<Products></Products>}></Route>
         <Route path='settings' element={<h1>Settings</h1>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
+        <Route path='register' element={<Register></Register>}></Route>
         <Route path='*' element={<h1>404 Page</h1>}></Route>
       </Routes>
       <Footer></Footer>
