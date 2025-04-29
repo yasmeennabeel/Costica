@@ -8,8 +8,8 @@ import Footer from './components/Footer'
 import Products from './pages/Products/Products'
 import SideCart from './components/SideCart/SideCart'
 import { useCart } from './store'
-import Register from './pages/Register/Register'
 import { ToastContainer } from 'react-toastify'
+import CheckOut from './pages/CheckOut/CheckOut'
 
 
 export default function App() {
@@ -31,7 +31,8 @@ export default function App() {
         <Route path='shop/:id' element={<Products></Products>}></Route>
         <Route path='settings' element={<h1>Settings</h1>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
-        <Route path='register' element={<Register></Register>}></Route>
+        <Route path='checkout' element={<CheckOut></CheckOut>}></Route>
+        <Route path='profile' element={<h1>Profile</h1>}></Route>
         <Route path='*' element={<h1>404 Page</h1>}></Route>
       </Routes>
       <Footer></Footer>
