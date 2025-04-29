@@ -10,6 +10,7 @@ import SideCart from './components/SideCart/SideCart'
 import { useCart } from './store'
 import { ToastContainer } from 'react-toastify'
 import CheckOut from './pages/CheckOut/CheckOut'
+import TrackOrder from './pages/TrackOrder/TrackOrder'
 
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
         <Route path='settings' element={<h1>Settings</h1>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='checkout' element={<CheckOut></CheckOut>}></Route>
+        <Route path='track' element={<TrackOrder></TrackOrder>}></Route>
         <Route path='profile' element={<h1>Profile</h1>}></Route>
         <Route path='*' element={<h1>404 Page</h1>}></Route>
       </Routes>

@@ -7,7 +7,7 @@ export default function Story() {
         <div className='storySection my-9'  data-aos="fade-up">
             <div className='grid grid-cols-1 md:grid-cols-2'>
                 <div className='storyLeft flex flex-col justify-end  text-center items-center'>
-                    <div className='storyTop '>
+                    <div className='storyTop p-3'>
                         <p className='text-md font-light font-[roboto] uppercase'>Our Story</p>
                         <h3 className='text-3xl font-bold font-[roboto] mt-4'>Our Comprehensive Innovation</h3>
                         <p className='mt-4 text-sm font-[roboto] leading-relaxed'>“Cosmetics are not just about vanity, but a form of self-expression, a way to feel confident and empowered. They are a gateway to unlocking one’s inner beauty and celebrating diversity in beauty standards.”</p>

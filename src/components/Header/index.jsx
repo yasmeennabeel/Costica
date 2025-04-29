@@ -29,6 +29,9 @@ export default function Header() {
     setToken(undefined);
     resetCart()
   }
+  const handleHome = ()=>{
+    navigate('/')
+  }
   return (
 
     <header className={`${styles.myHeader} h-[80px] sticky top-0 z-[99] shadow flex justify-between items-center `}>
@@ -60,7 +63,7 @@ export default function Header() {
 
             </div>
           </div>
-          <img src={logoImg} alt="" className={`${styles.logo} `} />
+          <img src={logoImg} alt="" className={`${styles.logo} `} onClick={handleHome} />
 
           <div className='hidden md:flex flex-1 gap-16 justify-center'>
             <Link to={'/'} className='!no-underline text-black font-[roboto] hover:!text-[var(--brownish)] transition cursor-pointer hover:!underline hover:font-semibold'>Home</Link>
@@ -79,13 +82,13 @@ export default function Header() {
                 productsInCart.reduce((acc, el) => acc + el.qty, 0)}
               </span>
             </div>
-            <CiStar size={24} className={styles.icon} />
+            {/* <CiStar size={24} className={styles.icon} /> */}
 
             {
               token &&
-              <div className='relative hidden md:flex gap-2 cursor-pointer'>
-                <IoIosLogOut className=' absolute top-3 left-1.5 text-white hover:!text-[var(--light)]' />
-                <button onClick={logOut } className='btn btn-danger w-[100px] text-center !text-sm !font-[roboto] hover:!text-[var(--light)] !font-semibold '> Log Out</button>
+              <div className='relative hidden md:flex gap-2 cursor-pointer '>
+                <IoIosLogOut className=' absolute top-3 left-2 text-white hover:!text-[var(--light)]' />
+                <button onClick={logOut } className='btn btn-danger w-[110px] text-center !text-sm !font-[roboto] hover:!text-[var(--light)] !font-semibold '> Log Out</button>
               </div>
             }
           </div>

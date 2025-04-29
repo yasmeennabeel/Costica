@@ -4,11 +4,10 @@ export default function CreditCard() {
 
             <p className="font-[roboto] font-semibold uppercase text-center">Payment method</p>
 
-
             <div
-                className="flex flex-col justify-center items-center bg-gray-800 p-4 border border-white border-opacity-30 rounded-lg shadow-md max-w-xs mx-auto h-[30vh]"
+                className="flex flex-col justify-center items-center bg-gray-800 p-6 border border-white border-opacity-30 rounded-lg shadow-md max-w-xs mx-auto h-auto sm:h-[50vh] md:h-[40vh] lg:h-[30vh]"
             >
-                <div className="flex flex-row items-center justify-between mb-3">
+                <div className="flex flex-row items-center justify-between mb-3 w-full">
                     <input
                         className="w-full h-10 border-none outline-none text-sm bg-gray-800 text-white font-semibold caret-orange-500 pl-2 mb-3 flex-grow"
                         type="text"
@@ -41,7 +40,8 @@ export default function CreditCard() {
                         </svg>
                     </div>
                 </div>
-                <div className="flex flex-col space-y-3">
+
+                <div className="flex flex-col space-y-3 w-full">
                     <input
                         className="w-full h-10 border-none outline-none text-sm bg-gray-800 text-white font-semibold caret-orange-500 pl-2"
                         type="text"
@@ -49,16 +49,16 @@ export default function CreditCard() {
                         id="cardNumber"
                         placeholder="0000 0000 0000 0000"
                     />
-                    <div className="flex flex-row justify-between">
+                    <div className="flex flex-col sm:flex-row justify-between gap-4 w-full">
                         <input
-                            className="w-full h-10 border-none outline-none text-sm bg-gray-800 text-white font-semibold caret-orange-500 pl-2"
+                            className="w-full sm:w-[48%] h-10 border-none outline-none text-sm bg-gray-800 text-white font-semibold caret-orange-500 pl-2"
                             type="text"
                             name="expiryDate"
                             id="expiryDate"
                             placeholder="MM/AA"
                         />
                         <input
-                            className="w-full h-10 border-none outline-none text-sm bg-gray-800 text-white font-semibold caret-orange-500 pl-2"
+                            className="w-full sm:w-[48%] h-10 border-none outline-none text-sm bg-gray-800 text-white font-semibold caret-orange-500 pl-2"
                             type="text"
                             name="cvv"
                             id="cvv"

@@ -48,7 +48,7 @@ export default function Products() {
             {
                categoryInfo.products && categoryInfo.products.map((el)=>{
                     return(
-                        <ProductCard key={el.documentId} name={el.product_name} price={el.product_price} imgUrl={domain + el.product_img.url} product={el}></ProductCard>
+                        <ProductCard key={el.documentId} name={el.product_name} price={el.product_price} imgUrl={domain + el.product_img.url} hoverImg={domain +el.hover_img.url} product={el}></ProductCard>
                     )
                 })
             }

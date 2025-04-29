@@ -1,9 +1,33 @@
-import React from 'react'
-import cardImg from '../../assets/imgs/product-10.jpg'
+import React, { useEffect, useState } from 'react'
 import back from '../../assets/imgs/back.png'
+import ProductCard from '../ProductCard/ProductCard';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useCategories } from '../../store';
+import axios from 'axios';
 export default function ShopHome() {
+  const params = useParams();
+  const { domain } = useCategories();
+  const navigate = useNavigate();
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    let endpoint = `/api/products`
+    let url = domain + endpoint;
+    axios.get(url, {
+      params: {
+        populate: '*',
+        'pagination[limit]': 4
+      }
+    }).then((res) => {
+      setProducts(res.data.data)
+    }).catch(() => {
+      navigate('/error')
+    })
+  })
+
   return (
-    <div className='shopHome  my-12'  data-aos="fade-up">
+    <div className='shopHome  my-12' data-aos="fade-up">
       <div className='bg-contain bg-no-repeat bg-right  w-full h-64' style={{ backgroundImage: `url(${back})` }}>
 
         <div className='flex flex-col justify-center align-center text-center gap-3'>
@@ -13,115 +37,11 @@ export default function ShopHome() {
       </div>
 
       <div className='container grid grid-cols-1 md:grid-cols-4'>
-        <div className="card bg-base-100  border-0 group">
-          <figure className="px-10 pt-10 ">
-            <div className='relative overflow-hidden'>
-              <div className="badge outline-0 border-0 px-3 z-10 absolute top-0 left-0 text-white bg-green-600 font-[roboto] m-0  font-extralight uppercase">New</div>
-              <img
-                src={cardImg}
-                alt="Lipstick"
-                className="rounded-xl transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer" />
-            </div>
-          </figure>
-          <div className="card-body justify-center items-center text-center">
-            <p className="card-title text-sm font-bold font-[roboto] ">Velvet Smooth Moisturizer</p>
-            <p className='text-black font-normal font-[roboto]'>$75.00</p>
-            <div className="rating">
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="2 star" defaultChecked />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="5 star" />
-            </div>
-
-            <div className="card-actions w-full">
-              <button className="w-full bg-[var(--white)] group-hover:bg-[var(--brownish)] transition group-hover:text-white font-[roboto] py-2 px-2 rounded shadow font-medium text-xs">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <div className="card bg-base-100  border-0 group" >
-          <figure className="px-10 pt-10">
-            <div className='relative overflow-hidden'>
-              <div className="badge outline-0 border-0 px-3 z-10 absolute top-0 left-0 text-white bg-green-600 font-[roboto] m-0  font-extralight uppercase">New</div>
-              <img
-                src={cardImg}
-                alt="Lipstick"
-                className="rounded-xl transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer" />
-            </div>
-          </figure>
-          <div className="card-body justify-center items-center text-center">
-            <p className="card-title text-sm font-bold font-[roboto] ">Velvet Smooth Moisturizer</p>
-            <p className='text-black font-normal font-[roboto]'>$75.00</p>
-            <div className="rating">
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="2 star" defaultChecked />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="5 star" />
-            </div>
-            <div className="card-actions w-full">
-              <button className="w-full bg-[var(--white)] group-hover:bg-[var(--brownish)] transition group-hover:text-white font-[roboto] py-2 px-2 rounded shadow font-medium text-xs">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <div className="card bg-base-100 border-0 group">
-          <figure className="px-10 pt-10">
-            <div className='relative overflow-hidden'>
-              <div className='absolute top-0 left-0 flex gap-1'>
-                <div className="badge outline-0 border-0 px-3 z-10 text-white bg-green-600 font-[roboto] m-0  font-extralight uppercase">New</div>
-                <div className="badge outline-0 border-0 px-3 z-10 text-white bg-red-600 font-[roboto] m-0  font-extralight uppercase">-17% </div>
-              </div>
-              <img
-                src={cardImg}
-                alt="Lipstick"
-                className="rounded-xl transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer" />
-            </div>
-          </figure>
-          <div className="card-body justify-center items-center text-center">
-            <p className="card-title text-sm font-bold font-[roboto] ">Velvet Smooth Moisturizer</p>
-            <p className='text-black font-normal font-[roboto]'>$75.00</p>
-            <div className="rating">
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="2 star" defaultChecked />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="5 star" />
-            </div>
-            <div className="card-actions w-full">
-              <button className="w-full bg-[var(--white)] group-hover:bg-[var(--brownish)] transition group-hover:text-white font-[roboto] py-2 px-2 rounded shadow font-medium text-xs">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <div className="card bg-base-100  border-0 group">
-          <figure className="px-10 pt-10">
-            <div className='relative'>
-              <div className='absolute top-0 left-0 flex gap-1'>
-                <div className="badge outline-0 border-0 px-3 z-10 text-white bg-green-600 font-[roboto] m-0  font-extralight uppercase">New</div>
-                <div className="badge outline-0 border-0 px-3 z-10 text-white bg-red-600 font-[roboto] m-0  font-extralight uppercase">-17% </div>
-              </div>
-              <img
-                src={cardImg}
-                alt="Lipstick"
-                className="rounded-xl transition-transform duration-500 ease-all transform hover:scale-90 hover:translate-1 cursor-pointer" />
-            </div>
-          </figure>
-          <div className="card-body justify-center items-center text-center">
-            <p className="card-title text-sm font-bold font-[roboto] ">Velvet Smooth Moisturizer</p>
-            <p className='text-black font-normal font-[roboto]'>$75.00</p>
-            <div className="rating">
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="2 star" defaultChecked />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" aria-label="5 star" />
-            </div>
-            <div className="card-actions w-full">
-              <button className="w-full bg-[var(--white)] group-hover:bg-[var(--brownish)] transition group-hover:text-white font-[roboto] py-2 px-2 rounded shadow font-medium text-xs">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-
+        {
+          products.map((el) => {
+            return <ProductCard key={el.documentId} name={el.product_name} price={el.product_price} imgUrl={domain + el.product_img.url} product={el}></ProductCard>
+          })
+        }
       </div>
     </div>
   )
