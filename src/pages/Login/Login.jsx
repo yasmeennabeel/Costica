@@ -37,7 +37,7 @@ export default function Login() {
                 if (redirect) {
                     navigate('/checkout')
                 } else {
-                    navigate('/profile');
+                    navigate('/');
 
                 }
 

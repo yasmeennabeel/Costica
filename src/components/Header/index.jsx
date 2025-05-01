@@ -7,6 +7,7 @@ import { FaShoppingBasket, FaUserCircle } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { IoSettingsSharp } from 'react-icons/io5'
 import { useCart } from '../../store'
+import { toast } from 'react-toastify'
 
 export default function Header() {
   const [activeTab, setActiveTab] = useState(0)
@@ -28,6 +29,7 @@ export default function Header() {
     navigate('/');
     setToken(undefined);
     resetCart()
+    toast.success("You're logged out successfully. See you soon!")
   }
   const handleHome = ()=>{
     navigate('/')
