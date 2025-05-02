@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import back from '../../assets/imgs/back.png'
 import { IoMail } from 'react-icons/io5'
 import { FaKey, FaUser } from 'react-icons/fa'
@@ -30,7 +30,9 @@ export default function Login() {
     }
     const handleLogin = (values) => {
         AuthRepo.login(values).then((res) => {
-            if (res) {
+            if (res?.jwt && res?.user) {
+                localStorage.setItem("jwt", res.jwt);
+                localStorage.setItem("user", JSON.stringify(res.user));
                 toast.success(`Welcome back ${res.user.username}`);
                 sessionStorage.setItem('token', res.jwt);
                 let redirect = sessionStorage.getItem('redirect')
@@ -46,7 +48,8 @@ export default function Login() {
             }
         });
     }
-
+  
+      
     return (
         <div className='login'>
             <div className="w-full h-64 bg-contain bg-no-repeat bg-right flex items-center justify-center"

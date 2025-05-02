@@ -11,6 +11,7 @@ import { useCart } from './store'
 import { ToastContainer } from 'react-toastify'
 import CheckOut from './pages/CheckOut/CheckOut'
 import TrackOrder from './pages/TrackOrder/TrackOrder'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 
 
 export default function App() {
@@ -34,7 +35,7 @@ export default function App() {
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='checkout' element={<CheckOut></CheckOut>}></Route>
         <Route path='track' element={<TrackOrder></TrackOrder>}></Route>
-        <Route path='profile' element={<h1>Profile</h1>}></Route>
+        <Route path='profile' element={<ProfilePage></ProfilePage>}></Route>
         <Route path='*' element={<h1>404 Page</h1>}></Route>
       </Routes>
       <Footer></Footer>

@@ -71,7 +71,7 @@ export default function Header() {
             <Link to={'/'} className='!no-underline text-black font-[roboto] hover:!text-[var(--brownish)] transition cursor-pointer hover:!underline hover:font-semibold'>Home</Link>
             <Link to={"/shop"} className='!no-underline text-black font-[roboto] hover:!text-[var(--brownish)] transition cursor-pointer hover:!underline hover:font-semibold'>Shop</Link>
             <Link to={'/'} className='!no-underline text-black font-[roboto] hover:!text-[var(--brownish)] transition cursor-pointer hover:!underline hover:font-semibold'>Wishlist</Link>
-            <Link to={"/login"} className='!no-underline text-black font-[roboto] hover:!text-[var(--brownish)] transition cursor-pointer hover:!underline hover:font-semibold'>Profile</Link>
+            <Link to={"/profile"} className='!no-underline text-black font-[roboto] hover:!text-[var(--brownish)] transition cursor-pointer hover:!underline hover:font-semibold'>Profile</Link>
           </div>
 
 

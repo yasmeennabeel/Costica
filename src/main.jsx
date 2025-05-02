@@ -39,7 +39,7 @@ createRoot(document.getElementById('root')).render(
 // You cannot proceed to checkout without logging in to your account or registering a new account
 
 // Products:
-// Products are stored in Strapi with details including categories/name/imgs/price/quantity 
+// Products are stored in Strapi with details including categories/name/imgs/price
 // Each Category has their own products and they are distributed depending on each product 
 // You can go to each category to browse the products within this category 
 

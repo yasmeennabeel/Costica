@@ -1,7 +1,6 @@
 // global state
 // initiate state
 import { create } from "zustand";
-import { loadCartFromStorage, saveCartToStorage } from "../utils/CartStorage";
 
 export const domain =  'http://localhost:1337'
 
@@ -60,6 +59,25 @@ export const useCategories = create((set,get) => ({
 // }));
 
 // store/useCart.js
+
+export const loadCartFromStorage = () => {
+    try {
+      const stored = localStorage.getItem("cart");
+      return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+      console.error("Failed to parse cart from storage:", e);
+      return [];
+    }
+  };
+  
+  export const saveCartToStorage = (cart) => {
+    try {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } catch (e) {
+      console.error("Failed to save cart:", e);
+    }
+  };
+  
 
 export const useCart = create((set) => {
   const initialCart = loadCartFromStorage(); 

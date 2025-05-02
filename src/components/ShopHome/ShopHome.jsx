@@ -36,7 +36,7 @@ export default function ShopHome() {
         </div>
       </div>
 
-      <div className='container grid grid-cols-1 md:grid-cols-4'>
+      <div className='container flex flex-col md:flex-row gap-4 items-center justify-center'>
         {
           products.map((el) => {
             return <ProductCard key={el.documentId} name={el.product_name} price={el.product_price} imgUrl={domain + el.product_img.url} product={el}></ProductCard>
