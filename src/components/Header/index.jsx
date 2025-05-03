@@ -26,6 +26,7 @@ export default function Header() {
   })
   const logOut = () => {
     sessionStorage.clear();
+    localStorage.clear();
     navigate('/');
     setToken(undefined);
     resetCart()
@@ -103,9 +104,3 @@ export default function Header() {
 
 
 }
-
-
-
-
-
-
