@@ -1,5 +1,6 @@
 // global state
 // initiate state
+import axios from "axios";
 import { create } from "zustand";
 
 export const domain =  'http://localhost:1337'
@@ -131,4 +132,18 @@ export const useCart = create((set) => {
   };
 });
 
-  
+  export const useSearchStore = create((set)=>({
+    query: '',
+    results: [],
+    setQuery: (query)=> set({query}),
+    searchProducts: async (query)=>{
+try{
+  const res = await axios.get(  `http://localhost:1337/api/products?filters[product_name][$containsi]=${query}&populate=*`  )
+  console.log('search results is : ' , res.data)
+  set({results: res.data.data || []})
+} catch(error){
+  console.error('search failed', error);
+  set({results: []})
+}
+    }
+  }))

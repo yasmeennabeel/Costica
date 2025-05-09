@@ -6,7 +6,7 @@ import { IoIosHome, IoIosLogOut } from 'react-icons/io'
 import { FaShoppingBasket, FaUserCircle } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { IoSettingsSharp } from 'react-icons/io5'
-import { useCart } from '../../store'
+import { useCart, useSearchStore } from '../../store'
 import { toast } from 'react-toastify'
 
 export default function Header() {
@@ -32,9 +32,19 @@ export default function Header() {
     resetCart()
     toast.success("You're logged out successfully. See you soon!")
   }
-  const handleHome = ()=>{
+  const handleHome = () => {
     navigate('/')
   }
+
+  const setQuery = useSearchStore((state) => state.setQuery)
+  const [showSearch, setShowSearch] = useState(false);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const input = e.target.search.value;
+    setQuery(input);
+    navigate('/search')
+  }
+
   return (
 
     <header className={`${styles.myHeader} h-[80px] sticky top-0 z-[99] shadow flex justify-between items-center `}>
@@ -77,7 +87,42 @@ export default function Header() {
 
 
           <div className='icons flex gap-4 items-center flex-shrink-0'>
-            <CiSearch size={24} className={styles.icon} />
+            {/* <form onSubmit={handleSearch} className='md:flex gap-3 hidden'>
+              <input className='form-control' name='search' placeholder='Search...'></input>
+              <button type='submit' className='flex gap-2 items-center bg-[var(--darkgreen)] hover:bg-[var(--brownish)] text-white rounded py-1 px-2 !text-sm !font-[roboto]'> <CiSearch size={24} className={`${styles.icon} !text-white`} />
+               Search</button>
+            </form> */}
+            <form onSubmit={handleSearch} className='md:flex gap-3 hidden'>
+              <input className='form-control' name='search' placeholder='Search...'></input>
+              <button type='submit' className='flex gap-2 items-center bg-[var(--darkgreen)] hover:bg-[var(--brownish)] text-white rounded py-1 px-2 !text-sm !font-[roboto]'><CiSearch size={24} className='!text-white' />Search</button>
+            </form>
+
+            <div className='relative md:hidden'>
+              <button onClick={() => setShowSearch(!showSearch)}> <CiSearch size={24} className='text-black' />
+              </button>
+              {
+                showSearch && (
+                  <form onSubmit={(e) => {
+                    handleSearch(e);
+                    setShowSearch(false)
+                  }}
+                    className='absolute top-10 right-0 bg-white p-2 shadow-md flex gap-2 rounded z-50'
+                  >
+                    <input
+                      name='search'
+                      className='border px-2 py-1 rounded text-sm'
+                      placeholder='Search...'
+                      autoFocus
+                    />
+                    <button type='submit' className='text-sm bg-[var(--darkgreen)] text-white px-2 py-1 rounded'>
+                      Go
+                    </button>
+
+                  </form>
+                )
+              }
+            </div>
+
             <Link to={'/login'}>  <CiUser size={24} className={styles.icon} /> </Link>
             <div className=' relative '>
               <CiShoppingCart onClick={openCart} size={24} className={styles.icon} />
@@ -85,13 +130,12 @@ export default function Header() {
                 productsInCart.reduce((acc, el) => acc + el.qty, 0)}
               </span>
             </div>
-            {/* <CiStar size={24} className={styles.icon} /> */}
 
             {
               token &&
               <div className='relative hidden md:flex gap-2 cursor-pointer '>
                 <IoIosLogOut className=' absolute top-3 left-2 text-white hover:!text-[var(--light)]' />
-                <button onClick={logOut } className='btn btn-danger w-[110px] text-center !text-sm !font-[roboto] hover:!text-[var(--light)] !font-semibold '> Log Out</button>
+                <button onClick={logOut} className='btn btn-danger w-[110px] text-center !text-sm !font-[roboto] hover:!text-[var(--light)] !font-semibold '> Log Out</button>
               </div>
             }
           </div>

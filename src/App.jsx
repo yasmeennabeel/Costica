@@ -12,6 +12,7 @@ import { ToastContainer } from 'react-toastify'
 import CheckOut from './pages/CheckOut/CheckOut'
 import TrackOrder from './pages/TrackOrder/TrackOrder'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
+import Search from './pages/SearchPage/Search'
 
 
 export default function App() {
@@ -31,7 +32,7 @@ export default function App() {
         <Route path='/' element={<HomePage></HomePage>}></Route>
         <Route path='shop' element={<ShopPage></ShopPage>}></Route>
         <Route path='shop/:id' element={<Products></Products>}></Route>
-        <Route path='settings' element={<h1>Settings</h1>}></Route>
+        <Route path='search' element={<Search></Search>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='checkout' element={<CheckOut></CheckOut>}></Route>
         <Route path='track' element={<TrackOrder></TrackOrder>}></Route>

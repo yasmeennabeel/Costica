@@ -1,6 +1,6 @@
 import { IoIosArrowBack } from 'react-icons/io'
 import back from '../../assets/imgs/back.png'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCategories } from '../../store';
 
 export default function NavProduct({ tabName }) {
@@ -14,9 +14,9 @@ export default function NavProduct({ tabName }) {
                     {activeCategoryID != 0 && <IoIosArrowBack onClick={() => { navigate('/shop') }} className='p-1 text-2xl cursor-pointer text-[var(--darkgreen)] hover:!text-[var(--offwhite)] hover:!bg-[var(--darkgreen)] hover:!rounded-full' />}
                     <div className=' transition text-center breadcrumbs flex flex-col items-center justify-center'>
                         <ul className='flex gap-2 text-xs m-0'>
-                            <li className=' font-[roboto] hover:text-[var(--brownish)] hover:font-bold'><a>Home</a></li>
-                            <li className='font-[roboto] hover:text-[var(--brownish)] hover:font-bold'><a>Shop</a></li>
-                           {tabName && <li className='font-[roboto] hover:text-[var(--brownish)] hover:font-bold cursor-pointer'>{tabName}</li>}
+                            <li className=''>  <Link to={'/'} className=' font-[roboto] hover:!text-[var(--brownish)] hover:font-bold !text-black !no-underline'>Home</Link></li>
+                            <li>  <Link to={'/shop'} className='font-[roboto] hover:!text-[var(--brownish)] hover:font-bold !text-black !no-underline'>Shop</Link></li>
+                            {tabName && <li className='font-[roboto] hover:text-[var(--brownish)] hover:font-bold cursor-pointer'>{tabName}</li>}
                         </ul>
                     </div>
                 </div>
